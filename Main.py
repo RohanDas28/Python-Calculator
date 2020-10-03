@@ -29,8 +29,16 @@ if __name__ == "__main__":
             print("\n************ Thanks for using the calculator **************\n")
             exit() 
 
-        number_1 = int(input("Enter first number: ")) 
-        number_2 = int(input("Enter second number: ")) 
+        try:
+            number_1 = int(input("Enter first number: "))
+        except ValueError:
+            print('First number is not number')
+            continue
+        try:
+            number_2 = int(input("Enter second number: "))
+        except ValueError:
+            print('Second number is not number')
+            continue
 
         if select == '1': 
             print(number_1, "+", number_2, "=", 

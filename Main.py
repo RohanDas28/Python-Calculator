@@ -32,22 +32,35 @@ if __name__ == "__main__":
         number_1 = int(input("Enter first number: ")) 
         number_2 = int(input("Enter second number: ")) 
 
-        if select == '1': 
-            print(number_1, "+", number_2, "=", 
-                            add(number_1, number_2)) 
+        if select == '1':
+            try: 
+                print(number_1, "+", number_2, "=", 
+                                add(number_1, number_2)) 
+            except Exception as e:
+                print("Something went wrong")
+                continue
+        elif select == '2':
+            try:
+                print(number_1, "-", number_2, "=", 
+                                subtract(number_1, number_2))  
+            except Exception as e:
+                print("Something went wrong")
+                continue                    
 
-        elif select == '2': 
-            print(number_1, "-", number_2, "=", 
-                            subtract(number_1, number_2))  
-
-        elif select == '3': 
-            print(number_1, "*", number_2, "=", 
-                            multiply(number_1, number_2))  
-
+        elif select == '3':
+            try: 
+                print(number_1, "*", number_2, "=", 
+                                multiply(number_1, number_2))  
+            except Exception as e:
+                print("Something went wrong")
+                continue
         elif select == '4': 
-            print(number_1, "/", number_2, "=", 
-                            divide(number_1, number_2))  
-        
+            try:
+                print(number_1, "/", number_2, "=", 
+                                divide(number_1, number_2))  
+            except Exception as e:
+                print("Something Went Wrong")
+                continue
         else: 
             print("Syntax Error!")  
         print("\n************ Thanks for using the calculator **************\n")

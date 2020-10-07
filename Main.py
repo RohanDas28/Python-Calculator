@@ -15,6 +15,7 @@ def divide(num1, num2):
 	return num1 / num2 
 if __name__ == "__main__":
     while True:
+	print("This is Rohan Das's Calculator")
         print("Please select operation -\n"
                 "1. Add\n"
                 "2. Subtract\n" 

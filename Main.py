@@ -1,46 +1,45 @@
 # add two numbers
 def add():
-    num1 = float(input("Enter number 1: "))
-    num2 = float(input("Enter number 2: "))
+    num1 = eval(input("Enter number 1: "))
+    num2 = eval(input("Enter number 2: "))
     print(f"The sum of {num1} and {num2} is {num1 + num2}")
 
 
 # subtract two numbers
 def subtract():
-    num1 = float(input("Enter number 1: "))
-    num2 = float(input("Enter number 2: "))
+    num1 = eval(input("Enter number 1: "))
+    num2 = eval(input("Enter number 2: "))
     print(f"The difference of {num1} and {num2} is {num1 - num2}")
 
 
 # multiply two numbers
 def multiply():
-    num1 = float(input("Enter number 1: "))
-    num2 = float(input("Enter number 2: "))
+    num1 = eval(input("Enter number 1: "))
+    num2 = eval(input("Enter number 2: "))
     print(f"The product of {num1} and {num2} is {num1 * num2}")
 
 
 # divide two numbers
 def divide():
-    num1 = float(input("Enter number 1: "))
-    num2 = float(input("Enter number 2: "))
+    num1 = eval(input("Enter number 1: "))
+    num2 = eval(input("Enter number 2: "))
     print(f"The division of {num1} and {num2} results in {num1 / num2}")
 
 
 def exponent():
-    num = float(input("Enter number to be exponented: "))
-    power = float(input("Enter power to be raised at: "))
+    num = eval(input("Enter number to be exponented: "))
+    power = eval(input("Enter power to be raised at: "))
     print(f"{num} raised to {power} is {num ** power}")
 
 
 def sqrt():  # sqrt -> square root
-    num = float(input("Enter number whose square root you want to know: "))
+    num = eval(input("Enter number whose square root you want to know: "))
     print(f"Square root of {num} is {num ** 0.5}")
 
 
 def cbrt():  # cbrt -> cube root
-    num = float(input("Enter number whose cube root you want to know: "))
-    print(f"Cube root of {num} is {num ** (1/3)}")
-    print('ssss')
+    num = eval(input("Enter number whose cube root you want to know: "))
+    print(f"Cube root of {num} is {num ** (1/3)}
 
 
 if __name__ == "__main__":

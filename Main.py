@@ -1,3 +1,8 @@
+"""
+This is a simple python calculator.
+"""
+
+
 # add two numbers
 def add():
     num1 = eval(input("Enter number 1: "))

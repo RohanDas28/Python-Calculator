@@ -1,6 +1,7 @@
 from PyQt5 import QtWidgets
 from ui_calculator import Ui_Calculator
 
+
 class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
 
     firstNum = None
@@ -13,9 +14,7 @@ class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
         super().__init__()
         self.setupUi(self)  # Ui == Ui_Calculator
         self.show()
-
-
-        #Connect buttons
+        # Connect buttons
         self.pushButton_0.clicked.connect(self.digit_pressed)
         self.pushButton_1.clicked.connect(self.digit_pressed)
         self.pushButton_2.clicked.connect(self.digit_pressed)
@@ -135,7 +134,7 @@ class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
                             self.calcHistory.setText(f'{self.addComma(self.operation_screen.text())} {button.text()}')
                     else:  # if firstNum is 0.
                         if button.text() == '—':  # if the operation is subtraction
-                            self.calcHistory.setText(f'0  -')
+                            self.calcHistory.setText('0  -')
                         else:  # if the operation is not subtraction
                             self.calcHistory.setText(f'0 {button.text()}')
                     button.setChecked(True)
@@ -156,10 +155,8 @@ class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
                 self.zeroDivision = False
                 self.firstNum = None
                 self.operation_screen.setText('')
-            
         else:  # if button is already checked (if multiple operations straight are made)
             self.multiple_operations = True
-
 
     def equals_pressed(self):
         if (self.pushButton_add.isChecked() or self.pushButton_subtract.isChecked() or  # if the operation buttons were pressed
@@ -552,11 +549,9 @@ class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
                                                 " background-color: rgb(12, 16, 25);\n")
         elif len(self.operation_screen.text().replace('-', '')) == 9:
             self.operation_screen.setStyleSheet(" font: 75 45pt \"Calibri\";\n"
-                                                    " color: rgb(255, 255, 255);\n"
-                                                    " background-color: rgb(12, 16, 25);\n")
+                                                " color: rgb(255, 255, 255);\n"
+                                                " background-color: rgb(12, 16, 25);\n")
         else:
             self.operation_screen.setStyleSheet(" font: 75 50pt \"Calibri\";\n"
                                                 " color: rgb(255, 255, 255);\n"
                                                 " background-color: rgb(12, 16, 25);\n")
-
-

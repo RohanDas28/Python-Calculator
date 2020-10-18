@@ -28,7 +28,11 @@ def divide():
     '''divides two numbers'''
     num1 = eval(input("Enter number 1: "))
     num2 = eval(input("Enter number 2: "))
-    print(f"The division of {num1} and {num2} results in {num1 / num2}")
+    # to check if divided by zero
+    try:
+        print(f"The division of {num1} and {num2} results in {num1 / num2}")
+    except exception as e:
+        print(e)
 
 
 def exponent():

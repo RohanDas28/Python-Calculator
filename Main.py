@@ -72,6 +72,28 @@ def fact():
         print(f"Factorial of {num} is {recurse_factor(num)}")
 
 
+def NTW(n=-1):
+    if(n==-1):
+        n = int(input("Enter the number whose conversion you want to find: "))
+    units = ["", "One", "Two", "Three", "Four",
+            "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve",
+            "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen",
+            "Eighteen", "Nineteen" ]
+    tens = ["","","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety"]
+    if (n < 20):
+        return units[n]
+    if (n < 100):
+        return tens[n//10]+(" " if (n % 10 != 0) else "")+units[n % 10]
+    if (n < 1000):
+        return units[n//100]+" Hundred"+(" " if (n%100!= 0) else "")+NTW(n % 100)
+    if (n < 100000):
+        return NTW(n//1000) +" Thousand"+(" " if (n % 10000 != 0) else "")+NTW(n % 1000)
+    if (n < 10000000):
+        return NTW(n//100000)+" Lakh"+(" " if (n % 100000 != 0) else "")+NTW(n % 100000)
+    return NTW(n//10000000)+" Crore"+(" " if (n % 10000000 != 0) else "")+NTW(n % 10000000)
+
+
+
 def main():
     # Taking input from the user
     try:
@@ -84,7 +106,8 @@ def main():
             "6. Square Root\n"
             "7. Cube Root\n"
             "8. Factorial\n"
-            "9. Quit\n"))
+            "9. Number To Words\n"
+            "10. Quit\n"))
     except Exception as e:
         print(f'{e} Error,\n Invalid Option...')
         main()
@@ -114,6 +137,10 @@ def main():
         fact()
 
     elif select == 9:
+        print("\n",NTW(),"\n\n\n")
+
+
+    elif select == 10:
         print("Thanks for visiting!")
         quit()
 

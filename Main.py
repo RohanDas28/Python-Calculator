@@ -5,52 +5,52 @@ This is a simple python calculator.
 
 def add():
     '''adds two numbers'''
-    num1 = eval(input("Enter number 1: "))
-    num2 = eval(input("Enter number 2: "))
+    num1 = int(input("Enter number 1: "))
+    num2 = int(input("Enter number 2: "))
     print(f"The sum of {num1} and {num2} is {num1 + num2}")
 
 
 def subtract():
     '''subtracts two numbers'''
-    num1 = eval(input("Enter number 1: "))
-    num2 = eval(input("Enter number 2: "))
+    num1 = int(input("Enter number 1: "))
+    num2 = int(input("Enter number 2: "))
     print(f"The difference of {num1} and {num2} is {num1 - num2}")
 
 
 def multiply():
     '''multiplies two numbers'''
-    num1 = eval(input("Enter number 1: "))
-    num2 = eval(input("Enter number 2: "))
+    num1 = int(input("Enter number 1: "))
+    num2 = int(input("Enter number 2: "))
     print(f"The product of {num1} and {num2} is {num1 * num2}")
 
 
 def divide():
     '''divides two numbers'''
-    num1 = eval(input("Enter number 1: "))
-    num2 = eval(input("Enter number 2: "))
+    num1 = int(input("Enter number 1: "))
+    num2 = int(input("Enter number 2: "))
     # to check if divided by zero
     try:
         print(f"The division of {num1} and {num2} results in {num1 / num2}")
-    except exception as e:
+    except ZeroDivisionError as e:
         print(e)
 
 
 def exponent():
     '''exponentiates a number'''
-    num = eval(input("Enter number to be exponented: "))
-    power = eval(input("Enter power to be raised at: "))
+    num = int(input("Enter number to be exponented: "))
+    power = int(input("Enter power to be raised at: "))
     print(f"{num} raised to {power} is {num ** power}")
 
 
 def sqrt():
     '''sqrt -> square root'''
-    num = eval(input("Enter number whose square root you want to know: "))
+    num = int(input("Enter number whose square root you want to know: "))
     print(f"Square root of {num} is {num ** 0.5}")
 
 
 def cbrt():
     '''cbrt -> cube root'''
-    num = eval(input("Enter number whose cube root you want to know: "))
+    num = int(input("Enter number whose cube root you want to know: "))
     print(f"Cube root of {num} is {num ** (1/3)}")
 
 
@@ -95,58 +95,59 @@ def NTW(n=-1):
 
 
 def main():
-    # Taking input from the user
-    try:
-        select = int(input("Please select operation -\n"
-            "1. Add\n"
-            "2. Subtract\n"
-            "3. Multiply\n"
-            "4. Divide\n"
-            "5. Exponentation\n"
-            "6. Square Root\n"
-            "7. Cube Root\n"
-            "8. Factorial\n"
-            "9. Number To Words\n"
-            "10. Quit\n"))
-    except Exception as e:
-        print(f'{e} Error,\n Invalid Option...')
-        main()
+    while True:
+        # Taking input from the user
+        try:
+            select = int(input("Please select operation -\n"
+                "1. Add\n"
+                "2. Subtract\n"
+                "3. Multiply\n"
+                "4. Divide\n"
+                "5. Exponentation\n"
+                "6. Square Root\n"
+                "7. Cube Root\n"
+                "8. Factorial\n"
+                "9. Number To Words\n"
+                "10. Quit\n"))
+        except ValueError as e:
+            print(f'{e} Error,\n Invalid Option...')
+            continue
 
-    if select == 1:
-        add()
+        if select == 1:
+            add()
 
-    elif select == 2:
-        subtract()
+        elif select == 2:
+            subtract()
 
-    elif select == 3:
-        multiply()
+        elif select == 3:
+            multiply()
 
-    elif select == 4:
-        divide()
+        elif select == 4:
+            divide()
 
-    elif select == 5:
-        exponent()
+        elif select == 5:
+            exponent()
 
-    elif select == 6:
-        sqrt()
+        elif select == 6:
+            sqrt()
 
-    elif select == 7:
-        cbrt()
+        elif select == 7:
+            cbrt()
 
-    elif select == 8:
-        fact()
+        elif select == 8:
+            fact()
 
-    elif select == 9:
-        print("\n",NTW(),"\n\n\n")
+        elif select == 9:
+            print("\n",NTW(),"\n\n\n")
 
 
-    elif select == 10:
-        print("Thanks for visiting!")
-        quit()
+        elif select == 10:
+            print("Thanks for visiting!")
+            break
 
-    else:
-        print("Invalid input!")
-    main()
+        else:
+            print("Invalid input!")
+
     print("\n************ Thanks for using the calculator **************\n")
 
 

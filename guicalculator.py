@@ -36,7 +36,6 @@ def equalpress():
 	# if error is generate then handle
 	# by the except block
 	except:
-
 		equation.set(" error ")
 
 
@@ -45,6 +44,10 @@ def equalpress():
 def clear():
 	equation.set("")
 
+# Function to handle keyboard movements[For Entery key only]
+def handle_keyboard(event):
+	if event.char == '\r': # Means enter key is pressed
+		equalpress()
 
 # Driver code
 if __name__ == "__main__":
@@ -64,6 +67,8 @@ if __name__ == "__main__":
 	# set the configuration of GUI window
 	gui.geometry("270x150")
 
+	# redirecting keyboard inputs to handle_keybaord function
+	gui.bind('<KeyPress>',handle_keyboard)
 
 	# create the text entry box for
 	# showing the expression .

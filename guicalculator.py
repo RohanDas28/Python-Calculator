@@ -3,8 +3,18 @@
 
 # import everything from tkinter module
 from tkinter import *
+import platform
 
 equation = None
+gui_windows_size = "270x150"
+
+# get OS version
+os = platform.platform().split('-')
+
+# resize for macOS Big Sur
+# macOS info : https://owiki.org/wiki/Darwin_%28operating_system%29
+if os[0].lower() == 'darwin' and os[1] >= '20':
+	gui_windows_size = "330x150"
 
 # Function to update expression
 # in the text entry box
@@ -65,7 +75,7 @@ if __name__ == "__main__":
 	gui.title("Simple Calculator")
 
 	# set the configuration of GUI window
-	gui.geometry("270x150")
+	gui.geometry(gui_windows_size)
 
 	# redirecting keyboard inputs to handle_keybaord function
 	gui.bind('<KeyPress>',handle_keyboard)

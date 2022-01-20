@@ -140,7 +140,6 @@ def main():
         elif select == 9:
             print("\n",NTW(),"\n\n\n")
 
-
         elif select == 10:
             print("Thanks for visiting!")
             break

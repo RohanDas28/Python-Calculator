@@ -4,6 +4,7 @@
 # import everything from tkinter module
 from tkinter import *
 import platform
+import re
 
 equation = None
 gui_windows_size = "270x150"
@@ -26,6 +27,17 @@ def press(num):
 	equation.set( equation.get() + str(num) )
 
 
+
+def limited_eval(input_string):
+    allowed_characters = r'^[\d\s\.\+\-\*\/]*$'
+    if re.match(allowed_characters, input_string):
+        try:
+            return eval(input_string)
+        except Exception:
+            return "error"  # Invalid expression
+    else:
+        return "error"  # Blacklisted characters
+
 # Function to evaluate the final expression
 def equalpress():
 	# Try and except statement is used
@@ -40,7 +52,7 @@ def equalpress():
 		# eval function evaluate the expression
 		# and str function convert the result
 		# into string
-		total = str(eval(equation.get()))
+		total = str(limited_eval(equation.get()))
 		equation.set(total)
 
 	# if error is generate then handle
@@ -215,7 +227,7 @@ def equalpress():
 
         # into string 
 
-        total = str(eval(expression)) 
+        total = str(limited_eval(expression)) 
  
 
         equation.set(total) 

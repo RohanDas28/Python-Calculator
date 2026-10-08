@@ -5,6 +5,7 @@
 from tkinter import *
 import platform
 import re
+import ast
 
 equation = None
 gui_windows_size = "270x150"
@@ -27,13 +28,15 @@ def press(num):
 	equation.set( equation.get() + str(num) )
 
 
-
 def limited_eval(input_string):
     allowed_characters = r'^[\d\s\.\+\-\*\/]*$'
     if re.match(allowed_characters, input_string):
         try:
-            return eval(input_string)
-        except Exception:
+            # Use ast.literal_eval for safe evaluation of mathematical expressions
+            # This prevents code injection by only allowing literal data structures
+            result = ast.literal_eval(input_string)
+            return result
+        except (ValueError, SyntaxError):
             return "error"  # Invalid expression
     else:
         return "error"  # Blacklisted characters
@@ -49,7 +52,7 @@ def equalpress():
 	try:
 		global equation
 
-		# eval function evaluate the expression
+		# Use safe evaluation function
 		# and str function convert the result
 		# into string
 		total = str(limited_eval(equation.get()))
@@ -221,7 +224,7 @@ def equalpress():
         global expression 
  
 
-        # eval function evaluate the expression 
+        # Use safe evaluation function 
 
         # and str function convert the result 
 
@@ -439,5 +442,4 @@ if __name__ == "__main__":
 
     # start the GUI 
 
-    gui.mainloop() 
-
+    gui.mainloop()
